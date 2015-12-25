@@ -1,0 +1,36 @@
+\documentclass[11pt]{article} %inicia el documento con una determinada clase
+\usepackage{graphicx} %permite incluir imágenes
+\usepackage[utf8]{inputenc} %permite utilizar caracteres extras
+\usepackage[spanish]{babel} %modifica en lenguage del documento
+\usepackage[vmargin=4cm,tmargin=3cm,hmargin=2cm,letterpaper]{geometry} %modifica lor margenes
+\setlength{\parindent}{0pt} %permite modificar la indentanción
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0.5mm} %le da un grozor a la linea del encabezado
+\pagenumbering{gobble} %quita la numeración de página
+\usepackage{framed,color}
+\definecolor{shadecolor}{rgb}{1,0.8,0.3}
+\begin{document}
+
+\fancyhead[L]{\includegraphics[scale=0.09]{./imagenes/ucr.eps}}
+\fancyhead[C]{UNIVERSIDAD DE COSTA RICA\\ESCUELA DE INGENIERÍA ELECTRICA\\EIE'S STUDENTS DATABASE\\RESULTS REPORT}
+\fancyhead[R]{\includegraphics[scale=0.09]{./imagenes/eie.eps}}
+\pagestyle{fancy}
+\setlength{\headheight}{30pt}
+\rule{\linewidth}{0.2mm}
+\vspace{10pt}
+
+\underline{\textbf{The filter you've done is:}}\\ \\
+ 
+\textbf{Id:} subcarne\\ \\
+\textbf{Campus:} subcampus\\ \\
+\textbf{From year:} subinicio\\ \\
+\textbf{To year:} subfin\\ \\
+\textbf{Period:} subperiodo\\ \\
+\textbf{Course:} subcurso\\ \\
+\rule{\linewidth}{0.2mm}
+
+The suboperacion of the grades is: subresultado\\
+In subentradas entries.
+
+\end{document}

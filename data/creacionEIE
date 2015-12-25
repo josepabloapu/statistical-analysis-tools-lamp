@@ -1,0 +1,42 @@
+Creación de la Base de Datos EIE
+
+CREATE DATABASE EIE;
+USE EIE;
+
+create table TablaCarne(id int unsigned NOT NULL, carne VARCHAR(40), PRIMARY KEY (id)) Engine=InnoDB;
+
+create table TablaSigla(id int unsigned NOT NULL, sigla VARCHAR(40), PRIMARY KEY (id)) Engine=InnoDB;
+
+CREATE TABLE Tnotas (carne_id INT UNSIGNED NOT NULL, recinto INT UNSIGNED NOT NULL , anio INT UNSIGNED NOT NULL, ciclo INT UNSIGNED NOT NULL, grupo INT UNSIGNED NOT NULL, sigla_id INT UNSIGNED NOT NULL, nota VARCHAR(40))Engine=InnoDB;
+
+ALTER TABLE Tnotas ADD CONSTRAINT FK_Tnotas1 FOREIGN KEY (sigla_id) REFERENCES TablaSigla(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+ALTER TABLE Tnotas ADD CONSTRAINT FK_Tnotas2 FOREIGN KEY (carne_id) REFERENCES TablaCarne(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+LOAD DATA INFILE 'student.csv' INTO TABLE TablaCarne FIELDS TERMINATED BY ','   LINES TERMINATED BY '\n';
+
+LOAD DATA INFILE 'subject.csv' INTO TABLE TablaSigla FIELDS TERMINATED BY ','   LINES TERMINATED BY '\n';
+
+LOAD DATA INFILE 'tablamodf.csv' INTO TABLE Tnotas FIELDS TERMINATED BY ';'   LINES TERMINATED BY '\n';
+
+ALTER TABLE Tnotas ADD id MEDIUMINT NOT NULL AUTO_INCREMENT KEY;
+
+-> Obtener máximo id de una tabla:
+
+select max(id) AS id from TablaCarne;
+
+-> Eliminar una fila de una tabla:
+
+delete from TablaCarne where id=1222;
+
+Búsquedas:
+
+SELECT * FROM TablaCarne
+
+SELECT nota FROM Tnotas JOIN TablaCarne ON TablaCarne.id=Tnotas.carne_id WHERE TablaCarne.carne='731638';
+
+SELECT nota FROM Tnotas JOIN TablaSigla ON TablaSigla.id=Tnotas.sigla_id WHERE TablaSigla.sigla='IE0303';
+
+SELECT anio,TablaSigla.sigla, TablaCarne.carne,nota FROM Tnotas JOIN TablaCarne ON TablaCarne.id=Tnotas.carne_id JOIN TablaSigla ON TablaSigla.id=Tnotas.sigla_id WHERE nota='7';
+
+SELECT TablaSigla.sigla, TablaCarne.carne,nota FROM Tnotas JOIN TablaCarne ON TablaCarne.id=Tnotas.carne_id JOIN TablaSigla ON TablaSigla.id=Tnotas.sigla_id WHERE TablaCarne.carne='731638' AND nota='7';

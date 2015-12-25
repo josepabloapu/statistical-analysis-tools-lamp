@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+
+#header {
+	height:auto;
+	width:auto;
+	margin-top:0px;
+	margin-left:auto;
+	margin-right:auto;
+	background-image: -moz-linear-gradient(top left, #FFFFFF 0%, #3D6D9E 100%);
+	color: #FFFFFF;
+	}
+	
+#content{
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #f8f8f8;
+	}
+
+#footer {
+	height: 60px;
+	width: auto;
+	margin-top: 0;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #0e68a1;
+	color: #FFFFFF;
+	}
+
+#mysqlcheck{
+	width: auto;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #FFFFFF;
+	}
+
+.clear {
+    clear: both;
+}
